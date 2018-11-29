@@ -54,4 +54,10 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
   
+  def self.find_by(row)
+    # value = row.values.first 
+    # binding.pry
+    sql = "SELECT * FROM #{self.table_name} WHERE #{row.keys.join}='#{row.values.join}'"
+    DB[:conn].execute(sql)
+  end
 end
